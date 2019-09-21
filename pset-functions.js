@@ -30,6 +30,16 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 1:')
 
 // Add your code below this line
+ function blackJack(playerCardScore, dealerCardScore) {
+
+
+ }
+
+
+
+
+
+
 
 // Add your code above this line
 
@@ -40,7 +50,8 @@ console.log('-----------------')
 /***********
 Problem: Word Counter
 
-Create a function named `wordCount()` that accepts a parameter called "phrase" which counts the number of occurrences of each word in that phrase
+Create a function named `wordCount()` that accepts a parameter called "phrase" which counts the number
+of occurrences of each word in that phrase
 
 For example, the phrase: "olly olly in come free" should result in output that looks similar to the following:
 
@@ -91,6 +102,8 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
+const wordCount = (phrase)  => {}
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -100,7 +113,8 @@ console.log('-----------------')
 /***********
 Problem: Scrabble Scorer
 
-Create a function named `scrabbleScore()` that accepts a parameter called "word". The function should use the following table to calculate the Scrabble score of a provided word:
+Create a function named `scrabbleScore()` that accepts a parameter called "word". The function should use the following table to
+ calculate the Scrabble score of a provided word:
 
 ```
 Letter                           Value
@@ -135,6 +149,11 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 3:')
 
 // Add your code below this line
+
+const scrabbleScore = word =>{
+
+    return scrabbleScore
+}
 
 // Add your code above this line
 

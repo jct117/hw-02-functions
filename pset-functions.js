@@ -5,7 +5,8 @@ Create a function named `blackJack()` that accepts two parameters:
 playerCardScore (number)
 dealerCardScore (number)
 
-Return whichever value is nearest (or equal) to 21 without going over. Return 0 if both scores go over 21.
+Return whichever value is nearest (or equal) to 21 without going over.
+Return 0 if both scores go over 21.
 
 Test Cases:
 Use the following test cases to confirm your program meets the success criteria
@@ -30,13 +31,30 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 1:')
 
 // Add your code below this line
- function blackJack(playerCardScore, dealerCardScore) {
 
+function blackJack(playerCardScore, dealerCardScore) {
+  // checks if any are over 21
+    if (playerCardScore  > 21 && dealerCardScore > 21){
+      console.log(0)
+    } else if(playerCardScore >= 22 && dealerCardScore < 22) {
+      console.log(dealerCardScore)
+    } else if(dealerCardScore >= 22 && playerCardScore < 22) {
+      console.log(playerCardScore)
+    }
+    // checks for highest number
+      else if(playerCardScore > dealerCardScore && playerCardScore < 22) {
+      console.log(playerCardScore)
+    } else if (playerCardScore < dealerCardScore && dealerCardScore < 22) {
+      console.log(dealerCardScore)
+    } else if ((playerCardScore === dealerCardScore)) {
+          return console.log(dealerCardScore)
+    } else {
+      console.log("error")
+    }
 
- }
+  }
 
-
-
+blackJack(21, 20)
 
 
 

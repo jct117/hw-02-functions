@@ -120,8 +120,27 @@ console.log('Problem 2:')
 
 // Add your code below this line
 
-const wordCount = (phrase)  => {}
 
+function wordCount(phrase){
+  phrase = phrase.replace(",","")
+  const arrayOfPhrase = phrase.split(' ')
+  const wordsArray = {}
+  for (i = 0; i < arrayOfPhrase.length; i ++){
+    let word = arrayOfPhrase[i]
+
+    if (!wordsArray[word]){
+        wordsArray[word] = 1
+    } else {
+      wordsArray[word]++
+    }
+  }
+
+  return wordsArray
+}
+
+
+
+console.log(wordCount("Humpty Dumpty sat on a wall Humpty Dumpty had a great fall"));
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -168,10 +187,53 @@ console.log('Problem 3:')
 
 // Add your code below this line
 
-const scrabbleScore = word =>{
+// re do this to understand ***************************************
 
-    return scrabbleScore
+
+/*ARRAY: scores of alphabet*/
+const letters = {
+    1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
+    2: ['D', 'G'],
+    3: ['B', 'C', 'M', 'P'],
+    4: ['F', 'H', 'V', 'W', 'Y'],
+    5: ['K'],
+    8: ['J', 'X'],
+    10: ['Q', 'Z']
+};
+/*VAR: count scores*/
+let sum;
+
+/*FUNCTION: return score of letter*/
+function lettersToScore(letter)
+{
+    for (var index in letters)
+    {
+	if (Object.keys(letters).indexOf((letters[index].indexOf(letter) !== -1) ? index.toString() : '-1')
+	    !== -1) {
+	    return parseInt(index);
+	}
+    }
 }
+
+/*FUNCTION: count final score*/
+var score = function(input) {
+    sum = 0;
+    if (input === null || input === "") {
+	return 0;
+    }
+
+    input.toUpperCase().split("").forEach(function(elem, index, array) {
+	sum += lettersToScore(elem);
+    });
+    return sum;
+}
+
+/*EXPORTS: export of function score*/
+module.exports = score;
+
+console.log(score("function"));
+
+
 
 // Add your code above this line
 

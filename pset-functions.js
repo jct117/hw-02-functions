@@ -121,26 +121,25 @@ console.log('Problem 2:')
 // Add your code below this line
 
 
-function wordCount(phrase){
-  phrase = phrase.replace(",","")
-  const arrayOfPhrase = phrase.split(' ')
-  const wordsArray = {}
-  for (i = 0; i < arrayOfPhrase.length; i ++){
-    let word = arrayOfPhrase[i]
+function wordCount(phrase) {
+  const words = phrase.split(" ")
+  const wordCountArray = {}
 
-    if (!wordsArray[word]){
-        wordsArray[word] = 1
+  words.forEach(function(word) {
+    // if word is not defined; creates new
+    // else adds +1 to the count
+    if (!wordCountArray[word]) {
+          wordCountArray[word] = 1
     } else {
-      wordsArray[word]++
+      wordCountArray[word] = wordCountArray[word] + 1
     }
-  }
-
-  return wordsArray
+  })
+    return wordCountArray;
 }
+// console.log(wordCount("Baby shark, doo doo doo doo doo doo"))
 
+console.log(wordCount("olly olly in come free"));
 
-
-console.log(wordCount("Humpty Dumpty sat on a wall Humpty Dumpty had a great fall"));
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -150,7 +149,8 @@ console.log('-----------------')
 /***********
 Problem: Scrabble Scorer
 
-Create a function named `scrabbleScore()` that accepts a parameter called "word". The function should use the following table to
+Create a function named `scrabbleScore()` that accepts a parameter called "word".
+The function should use the following table to
  calculate the Scrabble score of a provided word:
 
 ```
@@ -190,48 +190,44 @@ console.log('Problem 3:')
 // re do this to understand ***************************************
 
 
-/*ARRAY: scores of alphabet*/
+// letter scoring
 const letters = {
-    1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
-    2: ['D', 'G'],
-    3: ['B', 'C', 'M', 'P'],
-    4: ['F', 'H', 'V', 'W', 'Y'],
-    5: ['K'],
-    8: ['J', 'X'],
-    10: ['Q', 'Z']
-};
-/*VAR: count scores*/
-let sum;
+     1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
+     2: ['D', 'G'],
+     3: ['B', 'C', 'M', 'P'],
+     4: ['F', 'H', 'V', 'W', 'Y'],
+     5: ['K'],
+     8: ['J', 'X'],
+     10: ['Q', 'Z']
+ }
 
-/*FUNCTION: return score of letter*/
-function lettersToScore(letter)
-{
-    for (var index in letters)
-    {
-	if (Object.keys(letters).indexOf((letters[index].indexOf(letter) !== -1) ? index.toString() : '-1')
-	    !== -1) {
-	    return parseInt(index);
-	}
-    }
-}
+ // count scores
+ let sum = 0
 
-/*FUNCTION: count final score*/
-var score = function(input) {
-    sum = 0;
-    if (input === null || input === "") {
-	return 0;
-    }
+ /*FUNCTION: return score of letter*/
+ function lettersForScore(letter) {
+     for (let index in letters) {
+ 	if (Object.keys(letters).indexOf((letters[index].indexOf(letter) !== -1) ? index.toString() : '-1') !== -1) {
+ 	    return parseInt(index)
+ 	}
+     } console.log(parseInt(index))
+ }
 
-    input.toUpperCase().split("").forEach(function(elem, index, array) {
-	sum += lettersToScore(elem);
-    });
-    return sum;
-}
+ /*FUNCTION: count final score*/
+ const scrabbleScore = function(word) {
+     sum = 0
+     if (word === null || word === "") {
+ 	return 0
+     }
 
-/*EXPORTS: export of function score*/
-module.exports = score;
 
-console.log(score("function"));
+  word.toUpperCase().split("").forEach(function(elem, index, array) {
+ 	     sum += lettersForScore(elem)
+    })
+     return sum;
+ }
+
+console.log(scrabbleScore("javascript"));
 
 
 
@@ -273,6 +269,27 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 4:')
 
 // Add your code below this line
+
+function isPalindrome(word) {
+
+    const letters = word.toLowerCase().split("")
+    const lettersCopy = letters.map((x) => x)
+
+    lettersCopy.reverse()
+
+    console.log(letters)
+    console.log(lettersCopy)
+
+    if (letters === lettersCopy) {
+      console.log("true")
+    } else {
+      console.log("false")
+    }
+  }
+
+isPalindrome("noon")
+
+
 
 // Add your code above this line
 

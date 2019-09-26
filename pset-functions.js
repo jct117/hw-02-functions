@@ -32,9 +32,14 @@ console.log('Problem 1:')
 
 // Add your code below this line
 
+let playerCardScore = Math.floor(Math.random() * 22)
+let dealerCardScore = Math.floor(Math.random() * 22)
+
+console.log( ` Player: ${playerCardScore}` ,"Dealer: " + dealerCardScore)
+
 function blackJack(playerCardScore, dealerCardScore) {
   // checks if any are over 21
-    if (playerCardScore  > 21 && dealerCardScore > 21){
+    if (playerCardScore  > 21 && dealerCardScore > 21) {
       console.log(0)
     } else if(playerCardScore >= 22 && dealerCardScore < 22) {
       console.log(dealerCardScore)
@@ -54,7 +59,7 @@ function blackJack(playerCardScore, dealerCardScore) {
 
   }
 
-blackJack(21, 20)
+blackJack(playerCardScore, dealerCardScore)
 
 
 
@@ -121,7 +126,9 @@ console.log('Problem 2:')
 // Add your code below this line
 
 
+//counts occurrences of the same word in a phrase
 function wordCount(phrase) {
+
   const words = phrase.split(" ")
   const wordCountArray = {}
 
@@ -187,11 +194,11 @@ console.log('Problem 3:')
 
 // Add your code below this line
 
-// re do this to understand ***************************************
 
 
-// letter scoring
-const letters = {
+
+// Objeect for letter scores
+const scoreBoard = {
      1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
      2: ['D', 'G'],
      3: ['B', 'C', 'M', 'P'],
@@ -204,30 +211,29 @@ const letters = {
  // count scores
  let sum = 0
 
- /*FUNCTION: return score of letter*/
- function lettersForScore(letter) {
-     for (let index in letters) {
- 	if (Object.keys(letters).indexOf((letters[index].indexOf(letter) !== -1) ? index.toString() : '-1') !== -1) {
- 	    return parseInt(index)
- 	}
-     } console.log(parseInt(index))
- }
+//assigns a value to eaech letter
+function lettersForScore(letter) {
+  for (let index in scoreBoard) {
+ 	  if (Object.keys(scoreBoard).indexOf((scoreBoard[index].indexOf(letter) !== -1) ? index.toString() : '-1') !== -1) {
+ 	      return parseInt(index)
+ 	   }
+  }
+}
 
- /*FUNCTION: count final score*/
- const scrabbleScore = function(word) {
-     sum = 0
-     if (word === null || word === "") {
- 	return 0
+  //score counter
+ scrabbleScore = function(word) {
+   console.log(word)
+   // gets the assignd value from the lettersForScore fn and totals it out
+    if (word === null || word === "") {
+ 	      return 0
      }
-
-
-  word.toUpperCase().split("").forEach(function(elem, index, array) {
+     word.toUpperCase().split("").forEach(function(elem, index, array) {
  	     sum += lettersForScore(elem)
     })
      return sum;
  }
 
-console.log(scrabbleScore("javascript"));
+console.log(scrabbleScore("function"));
 
 
 
@@ -271,24 +277,25 @@ console.log('Problem 4:')
 // Add your code below this line
 
 function isPalindrome(word) {
-
+    let result
     const letters = word.toLowerCase().split("")
     const lettersCopy = letters.map((x) => x)
 
     lettersCopy.reverse()
 
-    console.log(letters)
-    console.log(lettersCopy)
+    // checks to see if the elements in the two arrays are equal to each other
+    letters.forEach((e1) => lettersCopy.forEach(e2 => {
+      if(e1 !== e2) {
+        result = false
+      } else {
+        result = true
+        }
+    }))
 
-    if (letters === lettersCopy) {
-      console.log("true")
-    } else {
-      console.log("false")
-    }
-  }
+  return result
+}
 
-isPalindrome("noon")
-
+console.log(isPalindrome("Noon"))
 
 
 // Add your code above this line
@@ -323,6 +330,24 @@ Use the following test cases to confirm your program meets the success criteria
 console.log('Problem 5:')
 
 // Add your code below this line
+
+function doubleLetters(word) {
+  let letters = word.toLowerCase().split("")
+  let result = false
+
+  letters.forEach((letter, index) => {
+    if (letter === letters[index + 1]) {
+      result = true
+    }
+  })
+
+  return result
+}
+
+console.log(doubleLetters("APPLE"))
+
+
+
 
 // Add your code above this line
 
